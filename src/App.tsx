@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 import {Todo} from "./types/types";
 import {v4 as uuidv4} from 'uuid'
 import AddForm from "./components/AddForm";
@@ -44,10 +43,19 @@ function App() {
 
   return (
     <div className="App">
+      <div className={'bg-green-400 fixed top-0 inset-x-0'}>
+        <header className={'max-w-screen-xl mx-auto p-3'}>
+          <h1 className={'text-xl text-white'}>Todo App</h1>
+        </header>
+      </div>
       {/*  Add Form*/}
-      <AddForm input={input} setInput={setInput} handleSubmit={handleSubmit} />
+      <div className={'max-w-screen-xl mx-auto mt-14 p-3'}>
+        <AddForm input={input} setInput={setInput} handleSubmit={handleSubmit} />
+      </div>
       {/*  List*/}
-      <List todo={todo} clearAll={clearAll} handleDelete={handleDelete} handleDone={hanldeDone} editTodo={editTodo} />
+      <div className={'max-w-screen-xl mx-auto'}>
+        <List todo={todo} clearAll={clearAll} handleDelete={handleDelete} handleDone={hanldeDone} editTodo={editTodo} />
+      </div>
     </div>
   );
 }
